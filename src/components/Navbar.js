@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { NavLink, Link } from 'react-router-dom'
 
 const Header = styled.header`
   background-color: #feffff;
@@ -25,7 +26,7 @@ const NavToggle = styled.button`
   border-radius: 50%;
   background: #ececec;
   color: black;
-  transition: opacity 250ms ease;
+  transition: opacity 500ms ease;
 
   position: absolute;
   left: 0;
@@ -67,7 +68,7 @@ const Hamburger = styled.span`
   }
 `
 
-const Logo = styled.a`
+const Logo = styled(Link)`
   height: 30px;
 `
 
@@ -77,9 +78,11 @@ const Img = styled.img`
 
 const Nav = styled.nav`
   width: 100%;
-  visibility: ${props => (props.open ? 'hidden' : 'visible')};
-  position: ${props => (props.open ? 'absolute' : 'relative')};
-  height: ${props => (props.open ? '0' : 'auto')};
+  visibility: ${props => (props.open ? 'visible' : 'hidden')};
+  opacity: ${props => (props.open ? '1' : '0')};
+  position: ${props => (props.open ? 'relative' : 'absolute')};
+  transition: opacity 1000ms ease;
+  height: ${props => (props.open ? 'auto' : '0')};
 `
 
 const NavList = styled.ul`
@@ -94,13 +97,17 @@ const NavItem = styled.li`
   border-bottom: 1px solid #ececec;
 `
 
-const NavLink = styled.a`
+const NavLinkStyled = styled(NavLink)`
   text-decoration: none;
   color: black;
 
   &:hover,
   &:focus {
     opacity: 0.6;
+  }
+
+  &.active {
+    color: blue;
   }
 `
 
@@ -124,34 +131,46 @@ const Navbar = () => {
           </NavToggle>
         )}
 
-        <Logo href='/'>
+        <Logo exact to='/'>
           <Img src='/logo.jpg' alt='header-logo' />
         </Logo>
         {isOpen ? (
-          <Nav>
+          <Nav open>
             <NavList>
               <NavItem>
-                <NavLink href='/'>Home</NavLink>
+                <NavLinkStyled activeClassName='active' exact to='/'>
+                  Home
+                </NavLinkStyled>
               </NavItem>
               <NavItem>
-                <NavLink href='/'>Category</NavLink>
+                <NavLinkStyled activeClassName='active' exact to='/category'>
+                  Category
+                </NavLinkStyled>
               </NavItem>
               <NavItem>
-                <NavLink href='/'>Contact</NavLink>
+                <NavLinkStyled activeClassName='active' exact to='/contact'>
+                  Contact
+                </NavLinkStyled>
               </NavItem>
             </NavList>
           </Nav>
         ) : (
-          <Nav open>
+          <Nav>
             <NavList>
               <NavItem>
-                <NavLink href='/'>Home</NavLink>
+                <NavLinkStyled activeClassName='active' exact to='/'>
+                  Home
+                </NavLinkStyled>
               </NavItem>
               <NavItem>
-                <NavLink href='/'>Category</NavLink>
+                <NavLinkStyled activeClassName='active' exact to='/category'>
+                  Category
+                </NavLinkStyled>
               </NavItem>
               <NavItem>
-                <NavLink href='/'>Contact</NavLink>
+                <NavLinkStyled activeClassName='active' exact to='/contact'>
+                  Contact
+                </NavLinkStyled>
               </NavItem>
             </NavList>
           </Nav>

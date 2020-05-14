@@ -9,19 +9,13 @@ const Div = styled.div`
   max-width: 600px;
 `
 
-const Container = styled.div`
-  width: 95%;
-  max-width: 550px;
-  margin: 0 auto;
-`
-
 const Homepage = () => {
   return (
     <Div>
       <Hero />
-      <Container>
+      <div className='container'>
         <Categories />
-      </Container>
+      </div>
     </Div>
   )
 }

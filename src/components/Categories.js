@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Row = styled.div`
   display: flex;
@@ -38,17 +39,28 @@ const Img = styled.img`
   max-width: 25%;
 `
 
-const P = styled.p``
+const P = styled.p`
+  /* margin-bottom: 3em; */
+`
 
-const Button = styled.button`
+const Button = styled.p`
+  margin-top: 3.5em;
+`
+
+const LinkStyled = styled(Link)`
   background: #7d99fd;
   color: #fff;
   font-size: 0.9rem;
+  text-decoration: none;
   text-align: center;
   border: none;
   border-radius: 5px;
-  margin-top: 2em;
-  padding: 0.75em 2em;
+  padding: 0.75em 2.5em;
+
+  &:focus,
+  &:hover {
+    opacity: 0.75;
+  }
 `
 
 const Categories = () => {
@@ -62,21 +74,33 @@ const Categories = () => {
               <CardItem>
                 <Img src='/dinner-icon.png' alt='birthday icon for card' />
                 <P>Lunch / Dinner</P>
-                <Button>Select</Button>
+                <Button>
+                  <LinkStyled exact to='/category/lunch-dinner'>
+                    Select
+                  </LinkStyled>
+                </Button>
               </CardItem>
             </Card>
             <Card>
               <CardItem>
                 <Img src='/bridal-icon.png' alt='birthday icon for card' />
                 <P>Bridal Shower</P>
-                <Button>Select</Button>
+                <Button>
+                  <LinkStyled exact to='/category/bridal-shower'>
+                    Select
+                  </LinkStyled>
+                </Button>
               </CardItem>
             </Card>
             <Card>
               <CardItem>
                 <Img src='/sweet-icon.png' alt='birthday icon for card' />
                 <P>Sweet Corner</P>
-                <Button>Select</Button>
+                <Button>
+                  <LinkStyled exact to='/category/sweet-corner'>
+                    Select
+                  </LinkStyled>
+                </Button>
               </CardItem>
             </Card>
           </Col>
@@ -85,21 +109,33 @@ const Categories = () => {
               <CardItem>
                 <Img src='/birthday-icon.png' alt='birthday icon for card' />
                 <P>Birthday</P>
-                <Button>Select</Button>
+                <Button>
+                  <LinkStyled exact to='/category/birthday'>
+                    Select
+                  </LinkStyled>
+                </Button>
               </CardItem>
             </Card>
             <Card>
               <CardItem>
                 <Img src='/event-icon2.png' alt='birthday icon for card' />
                 <P>Event</P>
-                <Button>Select</Button>
+                <Button>
+                  <LinkStyled exact to='/category/event'>
+                    Select
+                  </LinkStyled>
+                </Button>
               </CardItem>
             </Card>
             <Card>
               <CardItem>
                 <Img src='/table-icon.png' alt='birthday icon for card' />
                 <P>Table Setting</P>
-                <Button>Select</Button>
+                <Button>
+                  <LinkStyled exact to='/category/table-setting'>
+                    Select
+                  </LinkStyled>
+                </Button>
               </CardItem>
             </Card>
           </Col>
