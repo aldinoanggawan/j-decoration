@@ -3,6 +3,11 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
+import ContentLoader from 'react-content-loader'
+
+const LoaderContainer = styled.div`
+  text-align: center;
+`
 
 const PageContainer = styled.div`
   padding-bottom: 2em;
@@ -85,6 +90,7 @@ const Span = styled.span`
 
 const LunchPage = () => {
   const [datas, setDatas] = useState()
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const getData = async () => {
@@ -101,6 +107,7 @@ const LunchPage = () => {
         )
         const records = await response.data.records
         setDatas(records)
+        setIsLoading(false)
       } catch (error) {
         console.error(error)
       }
@@ -112,67 +119,59 @@ const LunchPage = () => {
     <PageContainer>
       <div className='container'>
         <H2>Lunch / Dinner Packages</H2>
-        {datas
-          ? datas.map(data => {
-              const { Name, Price, Photos, Description } = data.fields
-              const descArray = Description.split(',')
-              const exactPrice = Price.toLocaleString()
+        {isLoading ? (
+          <LoaderContainer>
+            <ContentLoader
+              speed={2}
+              width={460}
+              height={600}
+              viewBox='0 0 460 600'
+              backgroundColor='#f3f3f3'
+              foregroundColor='#ecebeb'
+            >
+              <rect x='15' y='358' rx='5' ry='5' width='150' height='12' />
+              <rect x='1' y='1' rx='4' ry='4' width='460' height='306' />
+              <rect x='356' y='570' rx='5' ry='5' width='93' height='12' />
+              <rect x='11' y='557' rx='10' ry='10' width='105' height='39' />
+              <rect x='15' y='398' rx='5' ry='5' width='150' height='12' />
+              <rect x='15' y='438' rx='5' ry='5' width='150' height='12' />
+              <rect x='15' y='478' rx='5' ry='5' width='100' height='12' />
+            </ContentLoader>
+          </LoaderContainer>
+        ) : datas ? (
+          datas.map(data => {
+            const { Name, Price, Photos, Description } = data.fields
+            const descArray = Description.split(',')
+            const exactPrice = Price.toLocaleString()
 
-              return (
-                <Card key={data.id}>
-                  <CardImage>
-                    {Photos.map(Photo => (
-                      <Img
-                        key={Photo.id}
-                        src={Photo.url}
-                        alt={Photo.filename}
-                      />
-                    ))}
-                  </CardImage>
-                  <CardDescription>
-                    <H4>{Name}</H4>
-                    <p>Package Included :</p>
-                    {descArray.map(desc => (
-                      <Ul key={uuidv4()}>
-                        <Li>{desc}</Li>
-                      </Ul>
-                    ))}
-                    <Row>
-                      <Button>
-                        <LinkStyled to='/category/lunch-dinner/package-1'>
-                          Details
-                        </LinkStyled>
-                      </Button>
-                      <Span>IDR {exactPrice}</Span>
-                    </Row>
-                  </CardDescription>
-                </Card>
-              )
-            })
-          : null}
-        {/* <Card>
-          <CardImage>
-            <Img src='/dinner1a.jpeg' alt='dinner package 1' />
-          </CardImage>
-          <CardDescription>
-            <H4>Package 1</H4>
-            <Ul>
-              <Li>- Name Tag</Li>
-              <Li>- Table Mat</Li>
-              <Li>- Table Decoration</Li>
-              <Li>- Chair Decoration</Li>
-              <Li>- Printed Photos 3/4r (2 pcs R)</Li>
-            </Ul>
-            <Row>
-              <Button>
-                <LinkStyled to='/category/lunch-dinner/package-1'>
-                  Details
-                </LinkStyled>
-              </Button>
-              <Span>IDR 400,000</Span>
-            </Row>
-          </CardDescription>
-        </Card> */}
+            return (
+              <Card key={data.id}>
+                <CardImage>
+                  {Photos.map(Photo => (
+                    <Img key={Photo.id} src={Photo.url} alt={Photo.filename} />
+                  ))}
+                </CardImage>
+                <CardDescription>
+                  <H4>{Name}</H4>
+                  <p>Package Included :</p>
+                  {descArray.map(desc => (
+                    <Ul key={uuidv4()}>
+                      <Li>{desc}</Li>
+                    </Ul>
+                  ))}
+                  <Row>
+                    <Button>
+                      <LinkStyled to='/category/lunch-dinner/package-1'>
+                        Details
+                      </LinkStyled>
+                    </Button>
+                    <Span>IDR {exactPrice}</Span>
+                  </Row>
+                </CardDescription>
+              </Card>
+            )
+          })
+        ) : null}
       </div>
     </PageContainer>
   )
