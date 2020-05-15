@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
+import { v4 as uuidv4 } from 'uuid'
 
 const PageContainer = styled.div`
   padding-bottom: 2em;
@@ -132,7 +133,7 @@ const LunchPage = () => {
                     <H4>{Name}</H4>
                     <p>Package Included :</p>
                     {descArray.map(desc => (
-                      <Ul>
+                      <Ul key={uuidv4()}>
                         <Li>{desc}</Li>
                       </Ul>
                     ))}
