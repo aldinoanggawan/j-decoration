@@ -131,7 +131,7 @@ const Navbar = () => {
           </NavToggle>
         )}
 
-        <Logo exact to='/'>
+        <Logo to='/'>
           <Img src='/logo.jpg' alt='header-logo' />
         </Logo>
         {isOpen ? (

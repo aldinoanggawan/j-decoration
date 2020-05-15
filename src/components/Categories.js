@@ -76,9 +76,7 @@ const Categories = () => {
                 <Img src='/dinner-icon.png' alt='birthday icon for card' />
                 <P>Lunch / Dinner</P>
                 <Button>
-                  <LinkStyled exact to='/category/lunch-dinner'>
-                    Select
-                  </LinkStyled>
+                  <LinkStyled to='/category/lunch-dinner'>Select</LinkStyled>
                 </Button>
               </CardItem>
             </Card>
@@ -87,9 +85,7 @@ const Categories = () => {
                 <Img src='/bridal-icon.png' alt='birthday icon for card' />
                 <P>Bridal Shower</P>
                 <Button>
-                  <LinkStyled exact to='/category/bridal-shower'>
-                    Select
-                  </LinkStyled>
+                  <LinkStyled to='/category/bridal-shower'>Select</LinkStyled>
                 </Button>
               </CardItem>
             </Card>
@@ -98,9 +94,7 @@ const Categories = () => {
                 <Img src='/sweet-icon.png' alt='birthday icon for card' />
                 <P>Sweet Corner</P>
                 <Button>
-                  <LinkStyled exact to='/category/sweet-corner'>
-                    Select
-                  </LinkStyled>
+                  <LinkStyled to='/category/sweet-corner'>Select</LinkStyled>
                 </Button>
               </CardItem>
             </Card>
@@ -111,9 +105,7 @@ const Categories = () => {
                 <Img src='/birthday-icon.png' alt='birthday icon for card' />
                 <P>Birthday</P>
                 <Button>
-                  <LinkStyled exact to='/category/birthday'>
-                    Select
-                  </LinkStyled>
+                  <LinkStyled to='/category/birthday'>Select</LinkStyled>
                 </Button>
               </CardItem>
             </Card>
@@ -122,9 +114,7 @@ const Categories = () => {
                 <Img src='/event-icon2.png' alt='birthday icon for card' />
                 <P>Event</P>
                 <Button>
-                  <LinkStyled exact to='/category/event'>
-                    Select
-                  </LinkStyled>
+                  <LinkStyled to='/category/event'>Select</LinkStyled>
                 </Button>
               </CardItem>
             </Card>
@@ -133,9 +123,7 @@ const Categories = () => {
                 <Img src='/table-icon.png' alt='birthday icon for card' />
                 <P>Table Setting</P>
                 <Button>
-                  <LinkStyled exact to='/category/table-setting'>
-                    Select
-                  </LinkStyled>
+                  <LinkStyled to='/category/table-setting'>Select</LinkStyled>
                 </Button>
               </CardItem>
             </Card>
