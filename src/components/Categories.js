@@ -21,10 +21,11 @@ const CardContainer = styled.div`
 `
 
 const Card = styled.div`
-  width: 100%;
+  /* width: 100%; */
   border: 2px solid #ececec;
   border-radius: 10px;
   padding: 1em 0;
+  margin: 0;
 
   & + & {
     margin-top: 1em;
