@@ -5,14 +5,18 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import ScrollToTop from './ScrollToTop'
+import { Provider } from 'react-redux'
+import store from './configureStore'
 
 ReactDOM.render(
-  <Router>
-    <React.StrictMode>
-      <ScrollToTop />
-      <App />
-    </React.StrictMode>
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <React.StrictMode>
+        <ScrollToTop />
+        <App />
+      </React.StrictMode>
+    </Router>
+  </Provider>,
   document.getElementById('root')
 )
 

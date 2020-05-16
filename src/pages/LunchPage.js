@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import Axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 import ContentLoader from 'react-content-loader'
+import { useSelector, useDispatch } from 'react-redux'
+import * as actions from '../actions'
 
 const LoaderContainer = styled.div`
   text-align: center;
@@ -22,6 +23,8 @@ const Card = styled.div`
   padding: 0.1em 0 0.5em;
   border: 2px solid #ececec;
   border-radius: 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 10px 2px;
 
   & + & {
     margin-top: 2em;
@@ -89,31 +92,15 @@ const Span = styled.span`
 `
 
 const LunchPage = () => {
-  const [datas, setDatas] = useState()
-  const [isLoading, setIsLoading] = useState(true)
+  const lunchPackagesState = useSelector(state => state.lunchPackages)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    const getData = async () => {
-      const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-      const config = {
-        headers: {
-          Authorization: `Bearer ${API_KEY}`,
-        },
-      }
-      try {
-        const response = await Axios.get(
-          'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Lunch-Dinner-Packages',
-          config
-        )
-        const records = await response.data.records
-        setDatas(records)
-        setIsLoading(false)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    getData()
-  }, [])
+    dispatch(actions.fetchDinnerPackages())
+  }, [dispatch])
+
+  const isLoading = lunchPackagesState.isLoading
+  const data = lunchPackagesState.data
 
   return (
     <PageContainer>
@@ -138,8 +125,8 @@ const LunchPage = () => {
               <rect x='15' y='478' rx='5' ry='5' width='100' height='12' />
             </ContentLoader>
           </LoaderContainer>
-        ) : datas ? (
-          datas.map(data => {
+        ) : data.length > 0 ? (
+          data.map(data => {
             const { Name, Price, Photos, Description } = data.fields
             const descArray = Description.split(',')
             const exactPrice = Price.toLocaleString()

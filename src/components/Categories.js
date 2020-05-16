@@ -27,6 +27,8 @@ const Card = styled.div`
   padding: 1em 0;
   margin: 0;
 
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 10px 0px;
+
   & + & {
     margin-top: 1em;
   }
