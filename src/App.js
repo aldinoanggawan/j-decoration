@@ -1,9 +1,11 @@
 import React from 'react'
 import Navbar from './components/Navbar'
-import Homepage from './pages/Homepage'
 import { Switch, Route } from 'react-router-dom'
-import LunchPage from './pages/LunchPage'
 import GlobalStyle from './styles/globalStyle'
+
+import Homepage from './pages/Homepage'
+import LunchPage from './pages/LunchPage'
+import BirthdayPage from './pages/BirthdayPage'
 
 const App = () => {
   return (
@@ -14,8 +16,11 @@ const App = () => {
         <Route exact path='/'>
           <Homepage />
         </Route>
-        <Route path='/category/lunch-dinner'>
+        <Route exact path='/category/lunch-dinner'>
           <LunchPage />
+        </Route>
+        <Route exact path='/category/birthday'>
+          <BirthdayPage />
         </Route>
       </Switch>
     </>

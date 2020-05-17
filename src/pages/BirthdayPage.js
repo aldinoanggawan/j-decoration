@@ -92,20 +92,20 @@ const Span = styled.span`
 `
 
 const LunchPage = () => {
-  const lunchPackagesState = useSelector(state => state.lunchPackages)
+  const birthdayPackagesState = useSelector(state => state.birthdayPackages)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(actions.fetchLunchPackages())
+    dispatch(actions.fetchBirthdayPackages())
   }, [dispatch])
 
-  const isLoading = lunchPackagesState.isLoading
-  const data = lunchPackagesState.data
+  const isLoading = birthdayPackagesState.isLoading
+  const data = birthdayPackagesState.data
 
   return (
     <PageContainer>
       <div className='container'>
-        <H2>Lunch / Dinner Packages</H2>
+        <H2>Birthday Packages</H2>
         {isLoading ? (
           <LoaderContainer>
             <ContentLoader
@@ -128,7 +128,7 @@ const LunchPage = () => {
         ) : data.length > 0 ? (
           data.map(data => {
             const { Name, Price, Photos, Description } = data.fields
-            const descArray = Description.split(',')
+            const descArray = Description.split('.')
             const exactPrice = Price.toLocaleString()
 
             return (

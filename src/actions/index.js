@@ -1,23 +1,23 @@
 import * as actionTypes from './actionTypes'
 import Axios from 'axios'
 
-export const fetchDinnerPackagesRequest = () => ({
+export const fetchLunchPackagesRequest = () => ({
   type: actionTypes.FETCH_LUNCH_PACKAGES_REQUEST,
 })
 
-const fetchDinnerPackagesSuccess = data => ({
+const fetchLunchPackagesSuccess = data => ({
   type: actionTypes.FETCH_LUNCH_PACKAGES_SUCCESS,
   payload: data,
 })
 
-const fetchDinnerPackagesFailure = error => ({
+const fetchLunchPackagesFailure = error => ({
   type: actionTypes.FETCH_LUNCH_PACKAGES_FAILURE,
   payload: error,
 })
 
-export const fetchDinnerPackages = () => {
+export const fetchLunchPackages = () => {
   return async dispatch => {
-    dispatch(fetchDinnerPackagesRequest())
+    dispatch(fetchLunchPackagesRequest())
     const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
     const config = {
       headers: {
@@ -30,9 +30,47 @@ export const fetchDinnerPackages = () => {
         config
       )
       const data = await response.data.records
-      dispatch(fetchDinnerPackagesSuccess(data))
+      dispatch(fetchLunchPackagesSuccess(data))
     } catch (error) {
-      dispatch(fetchDinnerPackagesFailure(error))
+      const errorMsg = error.message
+      dispatch(fetchLunchPackagesFailure(errorMsg))
+    }
+  }
+}
+
+export const fetchBirthdayPackagesRequest = () => ({
+  type: actionTypes.FETCH_BIRTHDAY_PACKAGES_REQUEST,
+})
+
+const fetchBirthdayPackagesSuccess = data => ({
+  type: actionTypes.FETCH_BIRTHDAY_PACKAGES_SUCCESS,
+  payload: data,
+})
+
+const fetchBirthdayPackagesFailure = error => ({
+  type: actionTypes.FETCH_BIRTHDAY_PACKAGES_FAILURE,
+  payload: error,
+})
+
+export const fetchBirthdayPackages = () => {
+  return async dispatch => {
+    dispatch(fetchBirthdayPackagesRequest())
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
+    const config = {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Birthday-Packages',
+        config
+      )
+      const data = await response.data.records
+      dispatch(fetchBirthdayPackagesSuccess(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchBirthdayPackagesFailure(errorMsg))
     }
   }
 }
