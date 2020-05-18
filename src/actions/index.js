@@ -75,6 +75,43 @@ export const fetchBirthdayPackages = () => {
   }
 }
 
+export const fetchBridalPackagesRequest = () => ({
+  type: actionTypes.FETCH_BRIDAL_PACKAGES_REQUEST,
+})
+
+const fetchBridalPackagesSuccess = data => ({
+  type: actionTypes.FETCH_BRIDAL_PACKAGES_SUCCESS,
+  payload: data,
+})
+
+const fetchBridalPackagesFailure = error => ({
+  type: actionTypes.FETCH_BRIDAL_PACKAGES_FAILURE,
+  payload: error,
+})
+
+export const fetchBridalPackages = () => {
+  return async dispatch => {
+    dispatch(fetchBridalPackagesRequest())
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
+    const config = {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Bridal-Shower-Packages',
+        config
+      )
+      const data = await response.data.records
+      dispatch(fetchBridalPackagesSuccess(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchBridalPackagesFailure(errorMsg))
+    }
+  }
+}
+
 export const fetchTablePackagesRequest = () => ({
   type: actionTypes.FETCH_TABLE_PACKAGES_REQUEST,
 })

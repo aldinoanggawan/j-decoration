@@ -1,3 +1,43 @@
+// import React, { useEffect } from 'react'
+// import { useSelector, useDispatch } from 'react-redux'
+// import * as actions from '../actions'
+
+// const BridalPage = () => {
+//   const bridalPackagesState = useSelector(state => state.bridalPackages)
+//   const dispatch = useDispatch()
+
+//   useEffect(() => {
+//     dispatch(actions.fetchBridalPackages())
+//   }, [dispatch])
+
+//   const data = bridalPackagesState.data
+
+//   return (
+//     <div className='container'>
+//       {data
+//         ? data.map(data => {
+//             const { Name, Description, Photos } = data.fields
+
+//             return (
+//               <div>
+//                 {Photos.map(Photo => (
+//                   <>
+//                     <img src={Photo.url} alt={Photo.filename} />
+//                     <p>{Photo.filename}</p>
+//                   </>
+//                 ))}
+//                 <p>{Name}</p>
+//                 <p>{Description}</p>
+//               </div>
+//             )
+//           })
+//         : null}
+//     </div>
+//   )
+// }
+
+// export default BridalPage
+
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -95,20 +135,20 @@ const Span = styled.span`
 `
 
 const LunchPage = () => {
-  const tablePackagesState = useSelector(state => state.tablePackages)
+  const bridalPackagesState = useSelector(state => state.bridalPackages)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(actions.fetchTablePackages())
+    dispatch(actions.fetchBridalPackages())
   }, [dispatch])
 
-  const isLoading = tablePackagesState.isLoading
-  const data = tablePackagesState.data
+  const isLoading = bridalPackagesState.isLoading
+  const data = bridalPackagesState.data
 
   return (
     <PageContainer>
       <div className='container'>
-        <H2>Table Setting Packages</H2>
+        <H2>Bridal Packages</H2>
         {isLoading ? (
           <LoaderContainer>
             <ContentLoader
