@@ -6,6 +6,7 @@ import GlobalStyle from './styles/globalStyle'
 import Homepage from './pages/Homepage'
 import LunchPage from './pages/LunchPage'
 import BirthdayPage from './pages/BirthdayPage'
+import TablePage from './pages/TablePage'
 
 const App = () => {
   return (
@@ -21,6 +22,9 @@ const App = () => {
         </Route>
         <Route exact path='/category/birthday'>
           <BirthdayPage />
+        </Route>
+        <Route exact path='/category/table-setting'>
+          <TablePage />
         </Route>
       </Switch>
     </>

@@ -74,3 +74,40 @@ export const fetchBirthdayPackages = () => {
     }
   }
 }
+
+export const fetchTablePackagesRequest = () => ({
+  type: actionTypes.FETCH_TABLE_PACKAGES_REQUEST,
+})
+
+const fetchTablePackagesSuccess = data => ({
+  type: actionTypes.FETCH_TABLE_PACKAGES_SUCCESS,
+  payload: data,
+})
+
+const fetchTablePackagesFailure = error => ({
+  type: actionTypes.FETCH_TABLE_PACKAGES_FAILURE,
+  payload: error,
+})
+
+export const fetchTablePackages = () => {
+  return async dispatch => {
+    dispatch(fetchTablePackagesRequest())
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
+    const config = {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Table-Setting-Packages',
+        config
+      )
+      const data = await response.data.records
+      dispatch(fetchTablePackagesSuccess(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchTablePackagesFailure(errorMsg))
+    }
+  }
+}
