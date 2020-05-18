@@ -9,9 +9,7 @@ const Header = styled.header`
 `
 
 const Container = styled.div`
-  /* display: flex;
-  justify-content: space-between; */
-  width: 95%;
+  width: 100%;
   max-width: 550px;
   margin: 0 auto;
   position: relative;
@@ -23,6 +21,7 @@ const NavToggle = styled.button`
   width: 3em;
   height: 3em;
   padding: 0;
+  margin-left: 1.5em;
   border-radius: 50%;
   background: #ececec;
   color: black;
@@ -81,23 +80,26 @@ const Nav = styled.nav`
   visibility: ${props => (props.open ? 'visible' : 'hidden')};
   opacity: ${props => (props.open ? '1' : '0')};
   position: ${props => (props.open ? 'relative' : 'absolute')};
-  transition: opacity 1000ms ease;
   height: ${props => (props.open ? 'auto' : '0')};
+  box-shadow: ${props =>
+    props.open ? '0px 6px 5px -3px rgba(209,209,209,1)' : 'none'};
+  transition: opacity 1000ms ease;
 `
 
 const NavList = styled.ul`
   list-style: none;
   text-transform: uppercase;
-  margin: 0;
+  margin: 1em 0 0;
   padding: 0;
 `
 
 const NavItem = styled.li`
-  margin-top: 1.5em;
-  border-bottom: 1px solid #ececec;
+  padding: 0.85em 0;
+  border-top: 1px solid #ececec;
 `
 
 const NavLinkStyled = styled(NavLink)`
+  display: block;
   text-decoration: none;
   color: black;
 

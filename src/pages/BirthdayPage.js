@@ -20,9 +20,10 @@ const H2 = styled.h2`
 `
 
 const Card = styled.div`
-  padding: 0.1em 0 0.5em;
+  padding-bottom: 1em;
   border: 2px solid #ececec;
   border-radius: 10px;
+  overflow: hidden;
 
   box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 10px 2px;
 
@@ -40,7 +41,7 @@ const CardDescription = styled.div`
 `
 
 const Img = styled.img`
-  max-width: 99.6%;
+  max-width: 100%;
 `
 
 const H4 = styled.h4`
