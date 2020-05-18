@@ -94,22 +94,23 @@ const NavList = styled.ul`
 `
 
 const NavItem = styled.li`
-  padding: 0.85em 0;
   border-top: 1px solid #ececec;
+
+  &:hover,
+  &:focus {
+    background: #ececec;
+    opacity: 0.7;
+  }
 `
 
 const NavLinkStyled = styled(NavLink)`
   display: block;
+  padding: 0.85em 0;
   text-decoration: none;
   color: black;
 
-  &:hover,
-  &:focus {
-    opacity: 0.6;
-  }
-
   &.active {
-    color: blue;
+    color: #e0bc55;
   }
 `
 
