@@ -8,6 +8,7 @@ import LunchPage from './pages/LunchPage'
 import BirthdayPage from './pages/BirthdayPage'
 import BridalPage from './pages/BridalPage'
 import TablePage from './pages/TablePage'
+import HotelPage from './pages/HotelPage'
 
 const App = () => {
   return (
@@ -29,6 +30,9 @@ const App = () => {
         </Route>
         <Route exact path='/category/table-setting'>
           <TablePage />
+        </Route>
+        <Route exact path='/category/hotel-room'>
+          <HotelPage />
         </Route>
       </Switch>
     </>

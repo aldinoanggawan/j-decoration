@@ -148,3 +148,40 @@ export const fetchTablePackages = () => {
     }
   }
 }
+
+export const fetchHotelPackagesRequest = () => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGES_REQUEST,
+})
+
+const fetchHotelPackagesSuccess = data => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGES_SUCCESS,
+  payload: data,
+})
+
+const fetchHotelPackagesFailure = error => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGES_FAILURE,
+  payload: error,
+})
+
+export const fetchHotelPackages = () => {
+  return async dispatch => {
+    dispatch(fetchHotelPackagesRequest())
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
+    const config = {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Hotel-Room-Packages',
+        config
+      )
+      const data = await response.data.records
+      dispatch(fetchHotelPackagesSuccess(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchHotelPackagesFailure(errorMsg))
+    }
+  }
+}

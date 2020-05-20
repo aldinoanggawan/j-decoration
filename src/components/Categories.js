@@ -32,6 +32,10 @@ const Card = styled.div`
   & + & {
     margin-top: 1em;
   }
+
+  &.card__last {
+    margin: 1em 7.3em 0;
+  }
 `
 
 const CardItem = styled.div`
@@ -76,7 +80,10 @@ const Categories = () => {
             <Card>
               <CardItem>
                 <Img src='/dinner-icon.png' alt='birthday icon for card' />
-                <P>Lunch / Dinner</P>
+                <P>
+                  Lunch /<br />
+                  Dinner
+                </P>
                 <Button>
                   <LinkStyled to='/category/lunch-dinner'>Select</LinkStyled>
                 </Button>
@@ -91,32 +98,17 @@ const Categories = () => {
                 </Button>
               </CardItem>
             </Card>
-            <Card>
-              <CardItem>
-                <Img src='/sweet-icon.png' alt='birthday icon for card' />
-                <P>Sweet Corner</P>
-                <Button>
-                  <LinkStyled to='/category/sweet-corner'>Select</LinkStyled>
-                </Button>
-              </CardItem>
-            </Card>
           </Col>
           <Col>
             <Card>
               <CardItem>
                 <Img src='/birthday-icon.png' alt='birthday icon for card' />
-                <P>Birthday</P>
+                <P>
+                  Birthday /<br />
+                  Dessert Table
+                </P>
                 <Button>
                   <LinkStyled to='/category/birthday'>Select</LinkStyled>
-                </Button>
-              </CardItem>
-            </Card>
-            <Card>
-              <CardItem>
-                <Img src='/event-icon2.png' alt='birthday icon for card' />
-                <P>Event</P>
-                <Button>
-                  <LinkStyled to='/category/event'>Select</LinkStyled>
                 </Button>
               </CardItem>
             </Card>
@@ -131,6 +123,15 @@ const Categories = () => {
             </Card>
           </Col>
         </Row>
+        <Card className='card__last'>
+          <CardItem>
+            <Img src='/bed-icon.png' alt='birthday icon for card' />
+            <P>Hotel Room</P>
+            <Button>
+              <LinkStyled to='/category/hotel-room'>Select</LinkStyled>
+            </Button>
+          </CardItem>
+        </Card>
       </CardContainer>
     </>
   )
