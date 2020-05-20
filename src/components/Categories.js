@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom'
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
+
+  &.Row__last {
+    justify-content: center;
+  }
 `
 const Col = styled.div`
   & + & {
@@ -34,7 +38,8 @@ const Card = styled.div`
   }
 
   &.card__last {
-    margin: 1em 7.3em 0;
+    margin-top: 1em;
+    max-width: 50%;
   }
 `
 
@@ -123,15 +128,17 @@ const Categories = () => {
             </Card>
           </Col>
         </Row>
-        <Card className='card__last'>
-          <CardItem>
-            <Img src='/bed-icon.png' alt='birthday icon for card' />
-            <P>Hotel Room</P>
-            <Button>
-              <LinkStyled to='/category/hotel-room'>Select</LinkStyled>
-            </Button>
-          </CardItem>
-        </Card>
+        <Row className='Row__last'>
+          <Card className='card__last'>
+            <CardItem>
+              <Img src='/bed-icon.png' alt='birthday icon for card' />
+              <P>Hotel Room</P>
+              <Button>
+                <LinkStyled to='/category/hotel-room'>Select</LinkStyled>
+              </Button>
+            </CardItem>
+          </Card>
+        </Row>
       </CardContainer>
     </>
   )
