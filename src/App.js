@@ -5,6 +5,7 @@ import GlobalStyle from './styles/globalStyle'
 
 import Homepage from './pages/Homepage'
 import LunchPage from './pages/LunchPage'
+import LunchPackage1 from './pages/LunchPackage1Page'
 import BirthdayPage from './pages/BirthdayPage'
 import BridalPage from './pages/BridalPage'
 import TablePage from './pages/TablePage'
@@ -21,6 +22,9 @@ const App = () => {
         </Route>
         <Route exact path='/category/lunch-dinner'>
           <LunchPage />
+        </Route>
+        <Route exact path='/category/lunch-dinner/package-1'>
+          <LunchPackage1 />
         </Route>
         <Route exact path='/category/birthday'>
           <BirthdayPage />
