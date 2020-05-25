@@ -87,7 +87,7 @@ const LunchPackage1Page = () => {
   }, [dispatch])
 
   const isLoading = lunchPackage1State.isLoading
-  const data = lunchPackage1State.data
+  const data = lunchPackage1State.data.fields
 
   const settings = {
     dots: true,
@@ -122,43 +122,37 @@ const LunchPackage1Page = () => {
             </ContentLoader>
           </LoaderContainer>
         </div>
-      ) : data.length > 0 ? (
-        data.map(data => {
-          const { Name, Description, Photos, Price, Text } = data.fields
-          const descArray = Description.split('.')
-          const exactPrice = Price.toLocaleString()
-
-          return (
-            <PageContainer key={uuidv4()}>
-              <SliderContainer>
-                <Slider {...settings}>
-                  {Photos.map(Photo => (
-                    <div key={Photo.id}>
-                      <Img src={Photo.url} alt={Photo.filename} />
-                    </div>
-                  ))}
-                </Slider>
-              </SliderContainer>
-              <div className='container'>
-                <H2>{Name}</H2>
-                <p>This package included :</p>
-                {descArray.map(desc => (
-                  <Ul key={uuidv4()}>
-                    <Li>{desc}</Li>
-                  </Ul>
+      ) : (
+        data && (
+          <PageContainer key={uuidv4()}>
+            <SliderContainer>
+              <Slider {...settings}>
+                {data.Photos.map(Photo => (
+                  <div key={Photo.id}>
+                    <Img src={Photo.url} alt={Photo.filename} />
+                  </div>
                 ))}
-                <P>{Text}</P>
-                <Row>
-                  <Button href='https://wa.me/6287877869696?text=Hi%20J%27Decoration%20!%20Saya%20mau%20book%20package%20(Lunch/Birthday/etc..)'>
-                    Book
-                  </Button>
-                  <Span>IDR {exactPrice}</Span>
-                </Row>
-              </div>
-            </PageContainer>
-          )
-        })
-      ) : null}
+              </Slider>
+            </SliderContainer>
+            <div className='container'>
+              <H2>{data.Name}</H2>
+              <p>This package includes :</p>
+              {data.Description.split('.').map(desc => (
+                <Ul key={uuidv4()}>
+                  <Li>{desc}</Li>
+                </Ul>
+              ))}
+              <P>{data.Text}</P>
+              <Row>
+                <Button href='https://wa.me/6287877869696?text=Hi%20J%27Decoration%20!%20Saya%20mau%20book%20package%20(Lunch/Birthday/etc..)'>
+                  Book
+                </Button>
+                <Span>IDR {data.Price}</Span>
+              </Row>
+            </div>
+          </PageContainer>
+        )
+      )}
     </>
   )
 }

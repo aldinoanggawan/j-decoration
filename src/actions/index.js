@@ -63,10 +63,10 @@ export const fetchLunchPackage1 = () => {
     }
     try {
       const response = await Axios.get(
-        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Lunch-Dinner-Detail',
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Lunch-Dinner-Detail/recwHTflc7Ecax4XE',
         config
       )
-      const data = await response.data.records
+      const data = await response.data
       dispatch(fetchLunchPackage1Success(data))
     } catch (error) {
       const errorMsg = error.message
