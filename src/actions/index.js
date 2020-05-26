@@ -75,6 +75,43 @@ export const fetchLunchPackage1 = () => {
   }
 }
 
+export const fetchLunchPackage2Request = () => ({
+  type: actionTypes.FETCH_LUNCH_PACKAGE2_REQUEST,
+})
+
+const fetchLunchPackage2Success = data => ({
+  type: actionTypes.FETCH_LUNCH_PACKAGE2_SUCCESS,
+  payload: data,
+})
+
+const fetchLunchPackage2Failure = error => ({
+  type: actionTypes.FETCH_LUNCH_PACKAGE2_FAILURE,
+  payload: error,
+})
+
+export const fetchLunchPackage2 = () => {
+  return async dispatch => {
+    dispatch(fetchLunchPackage2Request())
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
+    const config = {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Lunch-Dinner-Detail/recfkO7oZzMCAE9X3',
+        config
+      )
+      const data = await response.data
+      dispatch(fetchLunchPackage2Success(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchLunchPackage2Failure(errorMsg))
+    }
+  }
+}
+
 export const fetchBirthdayPackagesRequest = () => ({
   type: actionTypes.FETCH_BIRTHDAY_PACKAGES_REQUEST,
 })
