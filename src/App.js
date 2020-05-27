@@ -11,6 +11,9 @@ import BirthdayPage from './pages/BirthdayPage'
 import BridalPage from './pages/BridalPage'
 import TablePage from './pages/TablePage'
 import HotelPage from './pages/HotelPage'
+import HotelPackage1Page from './pages/HotelPackage1Page'
+import HotelPackage2Page from './pages/HotelPackage2Page'
+import HotelPackage3Page from './pages/HotelPackage3Page'
 
 const App = () => {
   return (
@@ -41,6 +44,15 @@ const App = () => {
         </Route>
         <Route exact path='/category/hotel-room'>
           <HotelPage />
+        </Route>
+        <Route exact path='/category/hotel-room/package-1'>
+          <HotelPackage1Page />
+        </Route>
+        <Route exact path='/category/hotel-room/package-2'>
+          <HotelPackage2Page />
+        </Route>
+        <Route exact path='/category/hotel-room/package-3'>
+          <HotelPackage3Page />
         </Route>
       </Switch>
     </>

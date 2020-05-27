@@ -259,3 +259,114 @@ export const fetchHotelPackages = () => {
     }
   }
 }
+
+export const fetchHotelPackage1Request = () => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGE1_REQUEST,
+})
+
+const fetchHotelPackage1Success = data => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGE1_SUCCESS,
+  payload: data,
+})
+
+const fetchHotelPackage1Failure = error => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGE1_FAILURE,
+  payload: error,
+})
+
+export const fetchHotelPackage1 = () => {
+  return async dispatch => {
+    dispatch(fetchHotelPackage1Request())
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
+    const config = {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Hotel-Room-Detail/recb7H3CkWDINIG15',
+        config
+      )
+      const data = await response.data
+      dispatch(fetchHotelPackage1Success(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchHotelPackage1Failure(errorMsg))
+    }
+  }
+}
+
+export const fetchHotelPackage2Request = () => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGE2_REQUEST,
+})
+
+const fetchHotelPackage2Success = data => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGE2_SUCCESS,
+  payload: data,
+})
+
+const fetchHotelPackage2Failure = error => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGE2_FAILURE,
+  payload: error,
+})
+
+export const fetchHotelPackage2 = () => {
+  return async dispatch => {
+    dispatch(fetchHotelPackage2Request())
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
+    const config = {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Hotel-Room-Detail/recqTs18ICChf5HuM',
+        config
+      )
+      const data = await response.data
+      dispatch(fetchHotelPackage2Success(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchHotelPackage2Failure(errorMsg))
+    }
+  }
+}
+
+export const fetchHotelPackage3Request = () => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGE3_REQUEST,
+})
+
+const fetchHotelPackage3Success = data => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGE3_SUCCESS,
+  payload: data,
+})
+
+const fetchHotelPackage3Failure = error => ({
+  type: actionTypes.FETCH_HOTEL_PACKAGE3_FAILURE,
+  payload: error,
+})
+
+export const fetchHotelPackage3 = () => {
+  return async dispatch => {
+    dispatch(fetchHotelPackage3Request())
+    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
+    const config = {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Hotel-Room-Detail/recrvF2CwQzhhquRA',
+        config
+      )
+      const data = await response.data
+      dispatch(fetchHotelPackage3Success(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchHotelPackage3Failure(errorMsg))
+    }
+  }
+}
