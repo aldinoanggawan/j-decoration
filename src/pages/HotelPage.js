@@ -130,7 +130,7 @@ const HotelPage = () => {
           </LoaderContainer>
         ) : data.length > 0 ? (
           data.map(data => {
-            const { Name, Price, Photos, Description } = data.fields
+            const { Name, Price, Photos, Description, DetailLink } = data.fields
             const descArray = Description.split('.')
             const priceArray = Price.split('.')
 
@@ -157,9 +157,7 @@ const HotelPage = () => {
                   ))}
                   <Row>
                     <Button>
-                      <LinkStyled to='/category/lunch-dinner/package-1'>
-                        Details
-                      </LinkStyled>
+                      <LinkStyled to={DetailLink}>Details</LinkStyled>
                     </Button>
                     <div>
                       {priceArray.map(price => (
