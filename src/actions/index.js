@@ -1,6 +1,13 @@
 import * as actionTypes from './actionTypes'
 import Axios from 'axios'
 
+const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
+const config = {
+  headers: {
+    Authorization: `Bearer ${API_KEY}`,
+  },
+}
+
 export const fetchLunchPackagesRequest = () => ({
   type: actionTypes.FETCH_LUNCH_PACKAGES_REQUEST,
 })
@@ -18,12 +25,6 @@ const fetchLunchPackagesFailure = error => ({
 export const fetchLunchPackages = () => {
   return async dispatch => {
     dispatch(fetchLunchPackagesRequest())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Lunch-Dinner-Packages',
@@ -55,12 +56,6 @@ const fetchLunchPackage1Failure = error => ({
 export const fetchLunchPackage1 = () => {
   return async dispatch => {
     dispatch(fetchLunchPackage1Request())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Lunch-Dinner-Detail/recwHTflc7Ecax4XE',
@@ -92,12 +87,6 @@ const fetchLunchPackage2Failure = error => ({
 export const fetchLunchPackage2 = () => {
   return async dispatch => {
     dispatch(fetchLunchPackage2Request())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Lunch-Dinner-Detail/recfkO7oZzMCAE9X3',
@@ -129,12 +118,6 @@ const fetchBirthdayPackagesFailure = error => ({
 export const fetchBirthdayPackages = () => {
   return async dispatch => {
     dispatch(fetchBirthdayPackagesRequest())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Birthday-Packages',
@@ -166,12 +149,6 @@ const fetchBridalPackagesFailure = error => ({
 export const fetchBridalPackages = () => {
   return async dispatch => {
     dispatch(fetchBridalPackagesRequest())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Bridal-Shower-Packages',
@@ -203,12 +180,6 @@ const fetchTablePackagesFailure = error => ({
 export const fetchTablePackages = () => {
   return async dispatch => {
     dispatch(fetchTablePackagesRequest())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Table-Setting-Packages',
@@ -240,12 +211,6 @@ const fetchHotelPackagesFailure = error => ({
 export const fetchHotelPackages = () => {
   return async dispatch => {
     dispatch(fetchHotelPackagesRequest())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Hotel-Room-Packages',
@@ -277,12 +242,6 @@ const fetchHotelPackage1Failure = error => ({
 export const fetchHotelPackage1 = () => {
   return async dispatch => {
     dispatch(fetchHotelPackage1Request())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Hotel-Room-Detail/recb7H3CkWDINIG15',
@@ -314,12 +273,6 @@ const fetchHotelPackage2Failure = error => ({
 export const fetchHotelPackage2 = () => {
   return async dispatch => {
     dispatch(fetchHotelPackage2Request())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Hotel-Room-Detail/recqTs18ICChf5HuM',
@@ -351,12 +304,6 @@ const fetchHotelPackage3Failure = error => ({
 export const fetchHotelPackage3 = () => {
   return async dispatch => {
     dispatch(fetchHotelPackage3Request())
-    const API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY
-    const config = {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
     try {
       const response = await Axios.get(
         'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Hotel-Room-Detail/recrvF2CwQzhhquRA',
