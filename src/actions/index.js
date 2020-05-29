@@ -132,6 +132,68 @@ export const fetchBirthdayPackages = () => {
   }
 }
 
+export const fetchBirthdayPackage1Request = () => ({
+  type: actionTypes.FETCH_BIRTHDAY_PACKAGE1_REQUEST,
+})
+
+const fetchBirthdayPackage1Success = data => ({
+  type: actionTypes.FETCH_BIRTHDAY_PACKAGE1_SUCCESS,
+  payload: data,
+})
+
+const fetchBirthdayPackage1Failure = error => ({
+  type: actionTypes.FETCH_BIRTHDAY_PACKAGE1_FAILURE,
+  payload: error,
+})
+
+export const fetchBirthdayPackage1 = () => {
+  return async dispatch => {
+    dispatch(fetchBirthdayPackage1Request())
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Birthday-Detail/rec1H8KWkfyKBTDvV',
+        config
+      )
+      const data = await response.data
+      dispatch(fetchBirthdayPackage1Success(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchBirthdayPackage1Failure(errorMsg))
+    }
+  }
+}
+
+export const fetchBirthdayPackage2Request = () => ({
+  type: actionTypes.FETCH_BIRTHDAY_PACKAGE2_REQUEST,
+})
+
+const fetchBirthdayPackage2Success = data => ({
+  type: actionTypes.FETCH_BIRTHDAY_PACKAGE2_SUCCESS,
+  payload: data,
+})
+
+const fetchBirthdayPackage2Failure = error => ({
+  type: actionTypes.FETCH_BIRTHDAY_PACKAGE2_FAILURE,
+  payload: error,
+})
+
+export const fetchBirthdayPackage2 = () => {
+  return async dispatch => {
+    dispatch(fetchBirthdayPackage2Request())
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Birthday-Detail/rec6Q9DLx76icwam8',
+        config
+      )
+      const data = await response.data
+      dispatch(fetchBirthdayPackage2Success(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchBirthdayPackage2Failure(errorMsg))
+    }
+  }
+}
+
 export const fetchBridalPackagesRequest = () => ({
   type: actionTypes.FETCH_BRIDAL_PACKAGES_REQUEST,
 })

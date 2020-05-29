@@ -8,6 +8,8 @@ import LunchPage from './pages/LunchPage'
 import LunchPackage1 from './pages/LunchPackage1Page'
 import LunchPackage2 from './pages/LunchPackage2Page'
 import BirthdayPage from './pages/BirthdayPage'
+import BirthdayPackage1Page from './pages/BirthdayPackage1Page'
+import BirthdayPackage2Page from './pages/BirthdayPackage2Page'
 import BridalPage from './pages/BridalPage'
 import TablePage from './pages/TablePage'
 import HotelPage from './pages/HotelPage'
@@ -33,8 +35,14 @@ const App = () => {
         <Route exact path='/category/lunch-dinner/package-2'>
           <LunchPackage2 />
         </Route>
-        <Route exact path='/category/birthday'>
+        <Route exact path='/category/birthday-dessert'>
           <BirthdayPage />
+        </Route>
+        <Route exact path='/category/birthday-dessert/package-1'>
+          <BirthdayPackage1Page />
+        </Route>
+        <Route exact path='/category/birthday-dessert/package-2'>
+          <BirthdayPackage2Page />
         </Route>
         <Route exact path='/category/bridal-shower'>
           <BridalPage />

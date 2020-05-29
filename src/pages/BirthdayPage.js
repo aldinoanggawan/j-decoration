@@ -92,7 +92,7 @@ const Span = styled.span`
   color: #e0bc55;
 `
 
-const LunchPage = () => {
+const BirthdayPage = () => {
   const birthdayPackagesState = useSelector(state => state.birthdayPackages)
   const dispatch = useDispatch()
 
@@ -128,7 +128,7 @@ const LunchPage = () => {
           </LoaderContainer>
         ) : data.length > 0 ? (
           data.map(data => {
-            const { Name, Price, Photos, Description } = data.fields
+            const { Name, Price, Photos, Description, DetailLink } = data.fields
             const descArray = Description.split('.')
             const exactPrice = Price.toLocaleString()
 
@@ -149,9 +149,7 @@ const LunchPage = () => {
                   ))}
                   <Row>
                     <Button>
-                      <LinkStyled to='/category/lunch-dinner/package-1'>
-                        Details
-                      </LinkStyled>
+                      <LinkStyled to={DetailLink}>Details</LinkStyled>
                     </Button>
                     <Span>IDR {exactPrice}</Span>
                   </Row>
@@ -165,4 +163,4 @@ const LunchPage = () => {
   )
 }
 
-export default LunchPage
+export default BirthdayPage

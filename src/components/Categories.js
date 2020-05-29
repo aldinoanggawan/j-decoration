@@ -113,7 +113,9 @@ const Categories = () => {
                   Dessert Table
                 </P>
                 <Button>
-                  <LinkStyled to='/category/birthday'>Select</LinkStyled>
+                  <LinkStyled to='/category/birthday-dessert'>
+                    Select
+                  </LinkStyled>
                 </Button>
               </CardItem>
             </Card>

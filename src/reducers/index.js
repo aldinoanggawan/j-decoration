@@ -3,6 +3,8 @@ import lunchPackages from './lunchPackages'
 import lunchPackage1 from './lunchPackage1'
 import lunchPackage2 from './lunchPackage2'
 import birthdayPackages from './birthdayPackages'
+import birthdayPackage1 from './birthdayPackage1'
+import birthdayPackage2 from './birthdayPackage2'
 import bridalPackages from './bridalPackages'
 import tablePackages from './tablePackages'
 import hotelPackages from './hotelPackages'
@@ -15,6 +17,8 @@ const rootReducer = combineReducers({
   lunchPackage1,
   lunchPackage2,
   birthdayPackages,
+  birthdayPackage1,
+  birthdayPackage2,
   bridalPackages,
   tablePackages,
   hotelPackages,
