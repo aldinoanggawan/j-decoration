@@ -79,16 +79,16 @@ const Button = styled.a`
   }
 `
 
-const BirthdayPackage1Page = () => {
-  const birthdayPackage1State = useSelector(state => state.birthdayPackage1)
+const TablePackage2Page = () => {
+  const tablePackage2State = useSelector(state => state.tablePackage2)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(actions.fetchBirthdayPackage1())
+    dispatch(actions.fetchTablePackage2())
   }, [dispatch])
 
-  const isLoading = birthdayPackage1State.isLoading
-  const data = birthdayPackage1State.data.fields
+  const isLoading = tablePackage2State.isLoading
+  const data = tablePackage2State.data.fields
 
   const settings = {
     dots: true,
@@ -162,4 +162,4 @@ const BirthdayPackage1Page = () => {
   )
 }
 
-export default BirthdayPackage1Page
+export default TablePackage2Page

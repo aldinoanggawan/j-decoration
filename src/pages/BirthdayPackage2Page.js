@@ -149,13 +149,9 @@ const BirthdayPackage2Page = () => {
                   Book
                 </Button>
                 <div>
-                  {data.Price.length ? (
-                    data.Price.split('.').map(price => (
-                      <Span key={uuidv4()}>{price}</Span>
-                    ))
-                  ) : (
-                    <Span>{data.Price}</Span>
-                  )}
+                  {data.Price.split('.').map(price => (
+                    <Span key={uuidv4()}>{price}</Span>
+                  ))}
                 </div>
               </Row>
             </div>

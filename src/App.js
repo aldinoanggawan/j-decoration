@@ -12,6 +12,8 @@ import BirthdayPackage1Page from './pages/BirthdayPackage1Page'
 import BirthdayPackage2Page from './pages/BirthdayPackage2Page'
 import BridalPage from './pages/BridalPage'
 import TablePage from './pages/TablePage'
+import TablePackage1Page from './pages/TablePackage1Page'
+import TablePackage2Page from './pages/TablePackage2Page'
 import HotelPage from './pages/HotelPage'
 import HotelPackage1Page from './pages/HotelPackage1Page'
 import HotelPackage2Page from './pages/HotelPackage2Page'
@@ -49,6 +51,12 @@ const App = () => {
         </Route>
         <Route exact path='/category/table-setting'>
           <TablePage />
+        </Route>
+        <Route exact path='/category/table-setting/package-1'>
+          <TablePackage1Page />
+        </Route>
+        <Route exact path='/category/table-setting/package-2'>
+          <TablePackage2Page />
         </Route>
         <Route exact path='/category/hotel-room'>
           <HotelPage />

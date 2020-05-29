@@ -256,6 +256,68 @@ export const fetchTablePackages = () => {
   }
 }
 
+export const fetchTablePackage1Request = () => ({
+  type: actionTypes.FETCH_TABLE_PACKAGE1_REQUEST,
+})
+
+const fetchTablePackage1Success = data => ({
+  type: actionTypes.FETCH_TABLE_PACKAGE1_SUCCESS,
+  payload: data,
+})
+
+const fetchTablePackage1Failure = error => ({
+  type: actionTypes.FETCH_TABLE_PACKAGE1_FAILURE,
+  payload: error,
+})
+
+export const fetchTablePackage1 = () => {
+  return async dispatch => {
+    dispatch(fetchTablePackage1Request())
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Table-Setting-Detail/recUCuTMv6t27vbEH',
+        config
+      )
+      const data = await response.data
+      dispatch(fetchTablePackage1Success(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchTablePackage1Failure(errorMsg))
+    }
+  }
+}
+
+export const fetchTablePackage2Request = () => ({
+  type: actionTypes.FETCH_TABLE_PACKAGE2_REQUEST,
+})
+
+const fetchTablePackage2Success = data => ({
+  type: actionTypes.FETCH_TABLE_PACKAGE2_SUCCESS,
+  payload: data,
+})
+
+const fetchTablePackage2Failure = error => ({
+  type: actionTypes.FETCH_TABLE_PACKAGE2_FAILURE,
+  payload: error,
+})
+
+export const fetchTablePackage2 = () => {
+  return async dispatch => {
+    dispatch(fetchTablePackage2Request())
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Table-Setting-Detail/recZLvMBIY1AI8IvU',
+        config
+      )
+      const data = await response.data
+      dispatch(fetchTablePackage2Success(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchTablePackage2Failure(errorMsg))
+    }
+  }
+}
+
 export const fetchHotelPackagesRequest = () => ({
   type: actionTypes.FETCH_HOTEL_PACKAGES_REQUEST,
 })

@@ -147,7 +147,11 @@ const LunchPackage2Page = () => {
                 <Button href='https://wa.me/6287877869696?text=Hi%20J%27Decoration%20!%20Saya%20mau%20book%20package%20(Lunch/Birthday/etc..)'>
                   Book
                 </Button>
-                <Span>IDR {data.Price.toLocaleString()}</Span>
+                <div>
+                  {data.Price.split('.').map(price => (
+                    <Span key={uuidv4()}>{price}</Span>
+                  ))}
+                </div>
               </Row>
             </div>
           </PageContainer>
