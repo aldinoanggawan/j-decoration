@@ -441,3 +441,34 @@ export const fetchHotelPackage3 = () => {
     }
   }
 }
+
+const fetchPhotoPackageRequest = () => ({
+  type: actionTypes.FETCH_PHOTO_PACKAGE_REQUEST,
+})
+
+const fetchPhotoPackageSuccess = data => ({
+  type: actionTypes.FETCH_PHOTO_PACKAGE_SUCCESS,
+  payload: data,
+})
+
+const fetchPhotoPackageFailure = error => ({
+  type: actionTypes.FETCH_PHOTO_PACKAGE_FAILURE,
+  payload: error,
+})
+
+export const fetchPhotoPackage = () => {
+  return async dispatch => {
+    dispatch(fetchPhotoPackageRequest())
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Photo-Booth-Detail/reco2caXcNx6ejBuE',
+        config
+      )
+      const data = await response.data
+      dispatch(fetchPhotoPackageSuccess(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchPhotoPackageFailure(errorMsg))
+    }
+  }
+}

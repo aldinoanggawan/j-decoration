@@ -18,6 +18,7 @@ import HotelPage from './pages/HotelPage'
 import HotelPackage1Page from './pages/HotelPackage1Page'
 import HotelPackage2Page from './pages/HotelPackage2Page'
 import HotelPackage3Page from './pages/HotelPackage3Page'
+import PhotoPage from './pages/PhotoPage'
 
 const App = () => {
   return (
@@ -69,6 +70,9 @@ const App = () => {
         </Route>
         <Route exact path='/category/hotel-room/package-3'>
           <HotelPackage3Page />
+        </Route>
+        <Route exact path='/category/photo-booth'>
+          <PhotoPage />
         </Route>
       </Switch>
     </>
