@@ -84,7 +84,7 @@ const Categories = () => {
           <Col>
             <Card>
               <CardItem>
-                <Img src='/dinner-icon.png' alt='birthday icon for card' />
+                <Img src='/dinner-icon.png' alt='dinner icon for card' />
                 <P>
                   Lunch /<br />
                   Dinner
@@ -96,10 +96,13 @@ const Categories = () => {
             </Card>
             <Card>
               <CardItem>
-                <Img src='/bridal-icon.png' alt='birthday icon for card' />
-                <P>Bridal Shower</P>
+                <Img src='/table-icon.png' alt='table icon for card' />
+                <P>
+                  Table Setting /<br />
+                  Bridal Shower
+                </P>
                 <Button>
-                  <LinkStyled to='/category/bridal-shower'>Select</LinkStyled>
+                  <LinkStyled to='/category/table-setting'>Select</LinkStyled>
                 </Button>
               </CardItem>
             </Card>
@@ -121,10 +124,13 @@ const Categories = () => {
             </Card>
             <Card>
               <CardItem>
-                <Img src='/table-icon.png' alt='birthday icon for card' />
-                <P>Table Setting</P>
+                <Img src='/bed-icon.png' alt='bed icon for card' />
+                <P>
+                  Hotel Room <br />
+                  <br />
+                </P>
                 <Button>
-                  <LinkStyled to='/category/table-setting'>Select</LinkStyled>
+                  <LinkStyled to='/category/hotel-room'>Select</LinkStyled>
                 </Button>
               </CardItem>
             </Card>
@@ -133,10 +139,14 @@ const Categories = () => {
         <Row className='Row__last'>
           <Card className='card__last'>
             <CardItem>
-              <Img src='/bed-icon.png' alt='birthday icon for card' />
-              <P>Hotel Room</P>
+              <Img src='/photo-icon.png' alt='photo icon for card' />
+              <P>
+                Photo Booth
+                <br />
+                <br />
+              </P>
               <Button>
-                <LinkStyled to='/category/hotel-room'>Select</LinkStyled>
+                <LinkStyled to='/category/photo-booth'>Select</LinkStyled>
               </Button>
             </CardItem>
           </Card>
