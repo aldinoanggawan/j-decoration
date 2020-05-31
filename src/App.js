@@ -29,6 +29,9 @@ const App = () => {
         <Route exact path='/'>
           <Homepage />
         </Route>
+        <Route exact path='/category'>
+          <Homepage />
+        </Route>
         <Route exact path='/category/lunch-dinner'>
           <LunchPage />
         </Route>

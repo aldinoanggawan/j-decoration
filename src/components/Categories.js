@@ -18,10 +18,15 @@ const Col = styled.div`
 
 const H2 = styled.h2`
   text-align: center;
+  font-weight: 600;
+`
+
+const Div = styled.div`
+  margin-top: 2em;
 `
 
 const CardContainer = styled.div`
-  margin-top: 1em;
+  margin-top: 1.5em;
 `
 
 const Card = styled.div`
@@ -47,24 +52,36 @@ const CardItem = styled.div`
   text-align: center;
 `
 
+const ImgContainer = styled.div`
+  background: #f3f5f6;
+  border: 11px solid #fafafa;
+  border-radius: 50%;
+  width: 40%;
+  margin: 0 auto;
+`
+
 const Img = styled.img`
-  max-width: 25%;
+  max-width: 80%;
 `
 
 const P = styled.p`
-  /* margin-bottom: 3em; */
+  margin: 1em 0;
+  font-size: 1rem;
+  line-height: 1.1;
 `
 
 const Button = styled.p`
-  margin-top: 3.5em;
+  margin-top: 2em;
 `
 
 const LinkStyled = styled(Link)`
   background: #7d99fd;
   color: #fff;
   font-size: 0.9rem;
+  font-weight: 500;
   text-decoration: none;
   text-align: center;
+  letter-spacing: 1.5px;
   border: none;
   border-radius: 5px;
   padding: 0.75em 2.5em;
@@ -77,14 +94,16 @@ const LinkStyled = styled(Link)`
 
 const Categories = () => {
   return (
-    <>
+    <Div>
       <H2>Choose category</H2>
       <CardContainer>
         <Row>
           <Col>
             <Card>
               <CardItem>
-                <Img src='/dinner-icon.png' alt='dinner icon for card' />
+                <ImgContainer>
+                  <Img src='/dinner-icon.png' alt='dinner icon for card' />
+                </ImgContainer>
                 <P>
                   Lunch /<br />
                   Dinner
@@ -96,7 +115,9 @@ const Categories = () => {
             </Card>
             <Card>
               <CardItem>
-                <Img src='/table-icon.png' alt='table icon for card' />
+                <ImgContainer>
+                  <Img src='/table-icon.png' alt='table icon for card' />
+                </ImgContainer>
                 <P>
                   Table Setting /<br />
                   Bridal Shower
@@ -110,7 +131,9 @@ const Categories = () => {
           <Col>
             <Card>
               <CardItem>
-                <Img src='/birthday-icon.png' alt='birthday icon for card' />
+                <ImgContainer>
+                  <Img src='/birthday-icon.png' alt='birthday icon for card' />
+                </ImgContainer>
                 <P>
                   Birthday /<br />
                   Dessert Table
@@ -124,7 +147,9 @@ const Categories = () => {
             </Card>
             <Card>
               <CardItem>
-                <Img src='/bed-icon.png' alt='bed icon for card' />
+                <ImgContainer>
+                  <Img src='/bed-icon.png' alt='bed icon for card' />
+                </ImgContainer>
                 <P>
                   Hotel Room <br />
                   <br />
@@ -139,7 +164,9 @@ const Categories = () => {
         <Row className='Row__last'>
           <Card className='card__last'>
             <CardItem>
-              <Img src='/photo-icon.png' alt='photo icon for card' />
+              <ImgContainer>
+                <Img src='/photo-icon.png' alt='photo icon for card' />
+              </ImgContainer>
               <P>
                 Photo Booth
                 <br />
@@ -152,7 +179,7 @@ const Categories = () => {
           </Card>
         </Row>
       </CardContainer>
-    </>
+    </Div>
   )
 }
 

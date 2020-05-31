@@ -5,7 +5,7 @@ import { NavLink, Link } from 'react-router-dom'
 const Header = styled.header`
   background-color: #feffff;
   text-align: center;
-  padding: 0.75em 0;
+  padding: 1em 0;
 `
 
 const Container = styled.div`
@@ -72,7 +72,7 @@ const Logo = styled(Link)`
 `
 
 const Img = styled.img`
-  max-width: 10%;
+  width: 60px;
 `
 
 const Nav = styled.nav`
@@ -88,14 +88,11 @@ const Nav = styled.nav`
 
 const NavList = styled.ul`
   list-style: none;
-  text-transform: uppercase;
   margin: 1em 0 0;
   padding: 0;
 `
 
 const NavItem = styled.li`
-  border-top: 1px solid #ececec;
-
   &:hover,
   &:focus {
     background: #ececec;
@@ -105,7 +102,7 @@ const NavItem = styled.li`
 
 const NavLinkStyled = styled(NavLink)`
   display: block;
-  padding: 0.85em 0;
+  padding: 0.65em 0;
   text-decoration: none;
   color: black;
 
@@ -137,7 +134,7 @@ const Navbar = () => {
         <Logo to='/'>
           <Img src='/logo.jpg' alt='header-logo' />
         </Logo>
-        {isOpen ? (
+        {isOpen && (
           <Nav open>
             <NavList>
               <NavItem>
@@ -146,33 +143,48 @@ const Navbar = () => {
                 </NavLinkStyled>
               </NavItem>
               <NavItem>
-                <NavLinkStyled activeClassName='active' exact to='/category'>
-                  Category
+                <NavLinkStyled
+                  activeClassName='active'
+                  exact
+                  to='/category/lunch-dinner'
+                >
+                  Lunch / Dinner
                 </NavLinkStyled>
               </NavItem>
               <NavItem>
-                <NavLinkStyled activeClassName='active' exact to='/contact'>
-                  Contact
-                </NavLinkStyled>
-              </NavItem>
-            </NavList>
-          </Nav>
-        ) : (
-          <Nav>
-            <NavList>
-              <NavItem>
-                <NavLinkStyled activeClassName='active' exact to='/'>
-                  Home
+                <NavLinkStyled
+                  activeClassName='active'
+                  exact
+                  to='/category/birthday-dessert'
+                >
+                  Birthday / Dessert Table
                 </NavLinkStyled>
               </NavItem>
               <NavItem>
-                <NavLinkStyled activeClassName='active' exact to='/category'>
-                  Category
+                <NavLinkStyled
+                  activeClassName='active'
+                  exact
+                  to='/category/table-setting'
+                >
+                  Table Setting / Bridal Shower
                 </NavLinkStyled>
               </NavItem>
               <NavItem>
-                <NavLinkStyled activeClassName='active' exact to='/contact'>
-                  Contact
+                <NavLinkStyled
+                  activeClassName='active'
+                  exact
+                  to='/category/hotel-room'
+                >
+                  Hotel Room
+                </NavLinkStyled>
+              </NavItem>
+              <NavItem>
+                <NavLinkStyled
+                  activeClassName='active'
+                  exact
+                  to='/category/photo-booth'
+                >
+                  Photo Booth
                 </NavLinkStyled>
               </NavItem>
             </NavList>
