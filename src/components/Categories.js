@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import CategoryCard from './CategoryCard'
 
 const Row = styled.div`
   display: flex;
@@ -29,69 +29,6 @@ const CardContainer = styled.div`
   margin-top: 1.5em;
 `
 
-const Card = styled.div`
-  /* width: 100%; */
-  border: 2px solid #ececec;
-  border-radius: 10px;
-  padding: 1em 0;
-  margin: 0;
-
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 10px 0px;
-
-  & + & {
-    margin-top: 1em;
-  }
-
-  &.card__last {
-    margin-top: 1em;
-    max-width: 50%;
-  }
-`
-
-const CardItem = styled.div`
-  text-align: center;
-`
-
-const ImgContainer = styled.div`
-  background: #f3f5f6;
-  border: 11px solid #fafafa;
-  border-radius: 50%;
-  width: 40%;
-  margin: 0 auto;
-`
-
-const Img = styled.img`
-  max-width: 80%;
-`
-
-const P = styled.p`
-  margin: 1em 0;
-  font-size: 1rem;
-  line-height: 1.1;
-`
-
-const Button = styled.p`
-  margin-top: 2em;
-`
-
-const LinkStyled = styled(Link)`
-  background: #7d99fd;
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  text-align: center;
-  letter-spacing: 1.5px;
-  border: none;
-  border-radius: 5px;
-  padding: 0.75em 2.5em;
-
-  &:focus,
-  &:hover {
-    opacity: 0.75;
-  }
-`
-
 const Categories = () => {
   return (
     <Div>
@@ -99,84 +36,42 @@ const Categories = () => {
       <CardContainer>
         <Row>
           <Col>
-            <Card>
-              <CardItem>
-                <ImgContainer>
-                  <Img src='/dinner-icon.png' alt='dinner icon for card' />
-                </ImgContainer>
-                <P>
-                  Lunch /<br />
-                  Dinner
-                </P>
-                <Button>
-                  <LinkStyled to='/category/lunch-dinner'>Select</LinkStyled>
-                </Button>
-              </CardItem>
-            </Card>
-            <Card>
-              <CardItem>
-                <ImgContainer>
-                  <Img src='/table-icon.png' alt='table icon for card' />
-                </ImgContainer>
-                <P>
-                  Table Setting /<br />
-                  Bridal Shower
-                </P>
-                <Button>
-                  <LinkStyled to='/category/table-setting'>Select</LinkStyled>
-                </Button>
-              </CardItem>
-            </Card>
+            <CategoryCard
+              cardSrc='/dinner-icon.png'
+              cardAlt='dinner icon for card'
+              cardText='Lunch /<br />Dinner'
+              cardLink='/category/lunch-dinner'
+            />
+            <CategoryCard
+              cardSrc='/table-icon.png'
+              cardAlt='table icon for card'
+              cardText='Table Setting /<br />Bridal Shower'
+              cardLink='/category/table-setting'
+            />
           </Col>
           <Col>
-            <Card>
-              <CardItem>
-                <ImgContainer>
-                  <Img src='/birthday-icon.png' alt='birthday icon for card' />
-                </ImgContainer>
-                <P>
-                  Birthday /<br />
-                  Dessert Table
-                </P>
-                <Button>
-                  <LinkStyled to='/category/birthday-dessert'>
-                    Select
-                  </LinkStyled>
-                </Button>
-              </CardItem>
-            </Card>
-            <Card>
-              <CardItem>
-                <ImgContainer>
-                  <Img src='/bed-icon.png' alt='bed icon for card' />
-                </ImgContainer>
-                <P>
-                  Hotel Room <br />
-                  <br />
-                </P>
-                <Button>
-                  <LinkStyled to='/category/hotel-room'>Select</LinkStyled>
-                </Button>
-              </CardItem>
-            </Card>
+            <CategoryCard
+              cardSrc='/birthday-icon.png'
+              cardAlt='birthday icon for card'
+              cardText='Birthday /<br />Dessert Table'
+              cardLink='/category/birthday-dessert'
+            />
+            <CategoryCard
+              cardSrc='/bed-icon.png'
+              cardAlt='bed icon for card'
+              cardText='Hotel Room<br /><br />'
+              cardLink='/category/hotel-room'
+            />
           </Col>
         </Row>
         <Row className='Row__last'>
-          <Card className='card__last'>
-            <CardItem>
-              <ImgContainer>
-                <Img src='/photo-icon.png' alt='photo icon for card' />
-              </ImgContainer>
-              <P>
-                Photo Booth
-                <br />
-                <br />
-              </P>
-              <Button>
-                <LinkStyled to='/category/photo-booth'>Select</LinkStyled>
-              </Button>
-            </CardItem>
-          </Card>
+          <CategoryCard
+            cardSrc='/photo-icon.png'
+            cardAlt='photo icon for card'
+            cardText='Photo Booth<br /><br />'
+            cardLink='/category/photo-booth'
+            className='card__last'
+          />
         </Row>
       </CardContainer>
     </Div>

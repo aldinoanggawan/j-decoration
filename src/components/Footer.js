@@ -9,7 +9,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 const Div = styled.div`
-  margin-top: 7em;
+  max-width: 600px;
+  margin: 10em auto 0;
   padding: 0.5em 0 0.1em;
   background: #ff667d;
   text-align: center;
@@ -17,9 +18,19 @@ const Div = styled.div`
 `
 
 const FooterTitle = styled.h2`
-  font-size: 2rem;
+  margin-bottom: 0;
+  font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 5px;
+`
+
+const FooterTitleSlogan = styled.h3`
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 2px;
 `
 
 const FooterItem = styled.div`
@@ -27,6 +38,7 @@ const FooterItem = styled.div`
 `
 
 const FooterItemTitle = styled.h3`
+  font-size: 1rem;
   font-weight: 700;
   margin-bottom: 0.5em;
 `
@@ -34,7 +46,7 @@ const FooterItemTitle = styled.h3`
 const P = styled.p`
   margin: 0;
   line-height: 1.4;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 
   & + & {
     margin-top: 0.4em;
@@ -42,7 +54,7 @@ const P = styled.p`
 `
 
 const Contact = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 
   & + & {
     margin-top: 0.8em;
@@ -75,6 +87,7 @@ const Footer = () => {
     <Div>
       <div className='container'>
         <FooterTitle>J'Decoration</FooterTitle>
+        <FooterTitleSlogan>Handle Your Best Moment</FooterTitleSlogan>
         <FooterItem>
           <FooterItemTitle>About Our Company</FooterItemTitle>
           <P>

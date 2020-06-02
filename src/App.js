@@ -10,7 +10,6 @@ import LunchPackage2 from './pages/LunchPackage2Page'
 import BirthdayPage from './pages/BirthdayPage'
 import BirthdayPackage1Page from './pages/BirthdayPackage1Page'
 import BirthdayPackage2Page from './pages/BirthdayPackage2Page'
-import BridalPage from './pages/BridalPage'
 import TablePage from './pages/TablePage'
 import TablePackage1Page from './pages/TablePackage1Page'
 import TablePackage2Page from './pages/TablePackage2Page'
@@ -19,6 +18,7 @@ import HotelPackage1Page from './pages/HotelPackage1Page'
 import HotelPackage2Page from './pages/HotelPackage2Page'
 import HotelPackage3Page from './pages/HotelPackage3Page'
 import PhotoPage from './pages/PhotoPage'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -50,9 +50,6 @@ const App = () => {
         <Route exact path='/category/birthday-dessert/package-2'>
           <BirthdayPackage2Page />
         </Route>
-        <Route exact path='/category/bridal-shower'>
-          <BridalPage />
-        </Route>
         <Route exact path='/category/table-setting'>
           <TablePage />
         </Route>
@@ -78,6 +75,7 @@ const App = () => {
           <PhotoPage />
         </Route>
       </Switch>
+      <Footer />
     </>
   )
 }
