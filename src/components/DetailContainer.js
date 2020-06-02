@@ -95,9 +95,9 @@ const DetailContainer = ({ Photos, Name, Description, Text, Price }) => {
         <H2>{Name}</H2>
         <P>This package includes :</P>
         {descArray.length > 1 ? (
-          <Ul key={uuidv4()}>
+          <Ul>
             {descArray.map(description => (
-              <Li>{description}</Li>
+              <Li key={uuidv4()}>{description}</Li>
             ))}
           </Ul>
         ) : (
@@ -112,7 +112,7 @@ const DetailContainer = ({ Photos, Name, Description, Text, Price }) => {
               <Span>{Price}</Span>
             )}
           </div>
-          <Button href='https://wa.me/6287877869696?text=Hi%20J%27Decoration%20!%20Saya%20mau%20book%20package%20(Lunch/Birthday/etc..)'>
+          <Button href='https://wa.me/6287877869696?text=Hallo%20kak%20saya%20mau%20nanya%20dekorasi...'>
             <FontAwesomeIcon icon={faWhatsapp} /> Book
           </Button>
         </Row>

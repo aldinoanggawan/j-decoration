@@ -8,6 +8,37 @@ const config = {
   },
 }
 
+const fetchHomepageCarouselRequest = () => ({
+  type: actionTypes.FETCH_HOMEPAGE_CAROUSEL_REQUEST,
+})
+
+const fetchHomepageCarouselSuccess = data => ({
+  type: actionTypes.FETCH_HOMEPAGE_CAROUSEL_SUCCESS,
+  payload: data,
+})
+
+const fetchHomepageCarouselFailure = error => ({
+  type: actionTypes.FETCH_HOMEPAGE_CAROUSEL_FAILURE,
+  payload: error,
+})
+
+export const fetchHomepageCarousel = () => {
+  return async dispatch => {
+    dispatch(fetchHomepageCarouselRequest())
+    try {
+      const response = await Axios.get(
+        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Home-Carousel/recODBCRZU6HS2FJu',
+        config
+      )
+      const data = response.data
+      dispatch(fetchHomepageCarouselSuccess(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchHomepageCarouselFailure(errorMsg))
+    }
+  }
+}
+
 export const fetchLunchPackagesRequest = () => ({
   type: actionTypes.FETCH_LUNCH_PACKAGES_REQUEST,
 })
@@ -190,37 +221,6 @@ export const fetchBirthdayPackage2 = () => {
     } catch (error) {
       const errorMsg = error.message
       dispatch(fetchBirthdayPackage2Failure(errorMsg))
-    }
-  }
-}
-
-export const fetchBridalPackagesRequest = () => ({
-  type: actionTypes.FETCH_BRIDAL_PACKAGES_REQUEST,
-})
-
-const fetchBridalPackagesSuccess = data => ({
-  type: actionTypes.FETCH_BRIDAL_PACKAGES_SUCCESS,
-  payload: data,
-})
-
-const fetchBridalPackagesFailure = error => ({
-  type: actionTypes.FETCH_BRIDAL_PACKAGES_FAILURE,
-  payload: error,
-})
-
-export const fetchBridalPackages = () => {
-  return async dispatch => {
-    dispatch(fetchBridalPackagesRequest())
-    try {
-      const response = await Axios.get(
-        'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Bridal-Shower-Packages',
-        config
-      )
-      const data = await response.data.records
-      dispatch(fetchBridalPackagesSuccess(data))
-    } catch (error) {
-      const errorMsg = error.message
-      dispatch(fetchBridalPackagesFailure(errorMsg))
     }
   }
 }
