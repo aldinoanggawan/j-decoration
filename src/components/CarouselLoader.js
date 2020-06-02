@@ -4,7 +4,7 @@ import ContentLoader from 'react-content-loader'
 
 const LoaderContainer = styled.div`
   text-align: center;
-  max-width: 550px;
+  max-width: 600px;
   margin: 0 auto;
 `
 

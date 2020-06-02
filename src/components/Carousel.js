@@ -15,11 +15,6 @@ const Img = styled.img`
   margin: 0 auto;
 `
 
-const Div = styled.div`
-  /* max-height: 200px; */
-  /* overflow: hidden; */
-`
-
 const settings = {
   dots: true,
   infinite: true,
@@ -37,9 +32,9 @@ const Carousel = ({ Photos, settingsProp }) => {
         <Slider {...settingsProp}>
           {Photos &&
             Photos.map(Photo => (
-              <Div key={Photo.id}>
+              <div key={Photo.id}>
                 <ImgFade src={Photo.url} alt={Photo.filename} />
-              </Div>
+              </div>
             ))}
         </Slider>
       ) : (
