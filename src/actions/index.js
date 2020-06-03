@@ -25,7 +25,9 @@ const fetchHomepageCarouselFailure = error => ({
 export const fetchHomepageCarousel = () => {
   return async dispatch => {
     dispatch(fetchHomepageCarouselRequest())
-    const homepageUri = process.env.REACT_APP_HOMEPAGE_CAROUSEL_URI
+    // const homepageUri = process.env.REACT_APP_HOMEPAGE_CAROUSEL_URI
+    const homepageUri =
+      'https://api.airtable.com/v0/apppvjKNuyzJcjxmH/Home-Carousel/recODBCRZU6HS2FJu'
     try {
       const response = await Axios.get(homepageUri, config)
       const data = response.data
