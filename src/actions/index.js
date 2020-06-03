@@ -37,7 +37,7 @@ export const fetchHomepageCarousel = () => {
   }
 }
 
-export const fetchLunchPackagesRequest = () => ({
+const fetchLunchPackagesRequest = () => ({
   type: actionTypes.FETCH_LUNCH_PACKAGES_REQUEST,
 })
 
@@ -66,7 +66,7 @@ export const fetchLunchPackages = () => {
   }
 }
 
-export const fetchLunchPackage1Request = () => ({
+const fetchLunchPackage1Request = () => ({
   type: actionTypes.FETCH_LUNCH_PACKAGE1_REQUEST,
 })
 
@@ -95,7 +95,7 @@ export const fetchLunchPackage1 = () => {
   }
 }
 
-export const fetchLunchPackage2Request = () => ({
+const fetchLunchPackage2Request = () => ({
   type: actionTypes.FETCH_LUNCH_PACKAGE2_REQUEST,
 })
 
@@ -124,7 +124,7 @@ export const fetchLunchPackage2 = () => {
   }
 }
 
-export const fetchBirthdayPackagesRequest = () => ({
+const fetchBirthdayPackagesRequest = () => ({
   type: actionTypes.FETCH_BIRTHDAY_PACKAGES_REQUEST,
 })
 
@@ -153,7 +153,7 @@ export const fetchBirthdayPackages = () => {
   }
 }
 
-export const fetchBirthdayPackage1Request = () => ({
+const fetchBirthdayPackage1Request = () => ({
   type: actionTypes.FETCH_BIRTHDAY_PACKAGE1_REQUEST,
 })
 
@@ -182,7 +182,7 @@ export const fetchBirthdayPackage1 = () => {
   }
 }
 
-export const fetchBirthdayPackage2Request = () => ({
+const fetchBirthdayPackage2Request = () => ({
   type: actionTypes.FETCH_BIRTHDAY_PACKAGE2_REQUEST,
 })
 
@@ -211,7 +211,37 @@ export const fetchBirthdayPackage2 = () => {
   }
 }
 
-export const fetchTablePackagesRequest = () => ({
+const fetchBirthdayCustomPackageRequest = () => ({
+  type: actionTypes.FETCH_BIRTHDAY_CUSTOM_PACKAGE_REQUEST,
+})
+
+const fetchBirthdayCustomPackageSuccess = data => ({
+  type: actionTypes.FETCH_BIRTHDAY_CUSTOM_PACKAGE_SUCCESS,
+  payload: data,
+})
+
+const fetchBirthdayCustomPackageFailure = error => ({
+  type: actionTypes.FETCH_BIRTHDAY_CUSTOM_PACKAGE_FAILURE,
+  payload: error,
+})
+
+export const fetchBirthdayCustomPackage = () => {
+  return async dispatch => {
+    dispatch(fetchBirthdayCustomPackageRequest())
+    const birthdayCustomPackageUri =
+      process.env.REACT_APP_BIRTHDAY_CUSTOM_PACKAGE_URI
+    try {
+      const response = await Axios.get(birthdayCustomPackageUri, config)
+      const data = await response.data
+      dispatch(fetchBirthdayCustomPackageSuccess(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchBirthdayCustomPackageFailure(errorMsg))
+    }
+  }
+}
+
+const fetchTablePackagesRequest = () => ({
   type: actionTypes.FETCH_TABLE_PACKAGES_REQUEST,
 })
 
@@ -240,7 +270,7 @@ export const fetchTablePackages = () => {
   }
 }
 
-export const fetchTablePackage1Request = () => ({
+const fetchTablePackage1Request = () => ({
   type: actionTypes.FETCH_TABLE_PACKAGE1_REQUEST,
 })
 
@@ -269,7 +299,7 @@ export const fetchTablePackage1 = () => {
   }
 }
 
-export const fetchTablePackage2Request = () => ({
+const fetchTablePackage2Request = () => ({
   type: actionTypes.FETCH_TABLE_PACKAGE2_REQUEST,
 })
 
@@ -298,7 +328,36 @@ export const fetchTablePackage2 = () => {
   }
 }
 
-export const fetchHotelPackagesRequest = () => ({
+const fetchTableCustomPackageRequest = () => ({
+  type: actionTypes.FETCH_TABLE_CUSTOM_PACKAGE_REQUEST,
+})
+
+const fetchTableCustomPackageSuccess = data => ({
+  type: actionTypes.FETCH_TABLE_CUSTOM_PACKAGE_SUCCESS,
+  payload: data,
+})
+
+const fetchTableCustomPackageFailure = error => ({
+  type: actionTypes.FETCH_TABLE_CUSTOM_PACKAGE_FAILURE,
+  payload: error,
+})
+
+export const fetchTableCustomPackage = () => {
+  return async dispatch => {
+    dispatch(fetchTableCustomPackageRequest())
+    const tableCustomPackageUri = process.env.REACT_APP_TABLE_CUSTOM_PACKAGE_URI
+    try {
+      const response = await Axios.get(tableCustomPackageUri, config)
+      const data = await response.data
+      dispatch(fetchTableCustomPackageSuccess(data))
+    } catch (error) {
+      const errorMsg = error.message
+      dispatch(fetchTableCustomPackageFailure(errorMsg))
+    }
+  }
+}
+
+const fetchHotelPackagesRequest = () => ({
   type: actionTypes.FETCH_HOTEL_PACKAGES_REQUEST,
 })
 
@@ -327,7 +386,7 @@ export const fetchHotelPackages = () => {
   }
 }
 
-export const fetchHotelPackage1Request = () => ({
+const fetchHotelPackage1Request = () => ({
   type: actionTypes.FETCH_HOTEL_PACKAGE1_REQUEST,
 })
 
@@ -356,7 +415,7 @@ export const fetchHotelPackage1 = () => {
   }
 }
 
-export const fetchHotelPackage2Request = () => ({
+const fetchHotelPackage2Request = () => ({
   type: actionTypes.FETCH_HOTEL_PACKAGE2_REQUEST,
 })
 
@@ -385,7 +444,7 @@ export const fetchHotelPackage2 = () => {
   }
 }
 
-export const fetchHotelPackage3Request = () => ({
+const fetchHotelPackage3Request = () => ({
   type: actionTypes.FETCH_HOTEL_PACKAGE3_REQUEST,
 })
 
